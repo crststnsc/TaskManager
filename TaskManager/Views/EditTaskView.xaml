@@ -1,0 +1,43 @@
+﻿<Window x:Class="TaskManager.Views.EditTaskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager.Views"
+        mc:Ignorable="d"
+        Title="EditTaskView" Height="450" Width="550"
+        xmlns:vm="clr-namespace:TaskManager.ViewModels" 
+        xmlns:models="clr-namespace:TaskManager.Models" 
+        d:DataContext="{d:DesignInstance Type=models:Task}">
+    <Grid>
+        <TextBlock Text="EDIT THE TASK" Width="80" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,19,0,0"/>
+        <TextBlock  Text="Name:" Width="40" Height="20" HorizontalAlignment="Left" Margin="20,60" VerticalAlignment="Top"/>
+        <TextBox x:Name="TaskName" Text="{Binding Name}" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,60"/>
+        <TextBlock  Text="Priority:" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 100"/>
+        <ComboBox x:Name="Priority" ItemsSource="{Binding Priority}" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65, 100" >
+            <ComboBoxItem Content="Low"/>
+            <ComboBoxItem Content="Medium"/>
+            <ComboBoxItem Content="High"/>
+        </ComboBox>
+        <TextBlock  Text="Status:" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 140"/>
+        <ComboBox x:Name="Status" ItemsSource="{Binding Status}" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65, 140" >
+            <ComboBoxItem Content="Created"/>
+            <ComboBoxItem Content="In Progress"/>
+            <ComboBoxItem Content="Done"/>
+        </ComboBox>
+
+        <TextBlock  Text="Deadline:" Height="20" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 180"/>
+        <DatePicker x:Name="Deadline" DisplayDate="{Binding TaskDeadline}" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65, 177" />
+        <TextBlock  Text="DoC:" Height="20" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,220,0,0" />
+        <DatePicker x:Name="DoC" DisplayDate="{Binding TaskDateOfCompletion}" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65, 217, 0, 0"/>
+        <TextBlock Text="Category:" Height="20" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 260, 0, 0"/>
+        <ComboBox x:Name="Category" ItemsSource="{Binding TaskCategory}" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65, 260, 0, 0">
+            <ComboBoxItem Content="Work"/>
+            <ComboBoxItem Content="School"/>
+            <ComboBoxItem Content="Other"/>
+        </ComboBox>
+        <TextBlock  Text="Description:" Height="20" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250, 60, 0 ,0"/>
+        <TextBox x:Name="Description" Text="{Binding Description}" Margin="250, 85, 25, 150"/>
+        <Button Content="UPDATE TASK" HorizontalAlignment="Left" Margin="30,320,0,0" VerticalAlignment="Top" Height="80" Width="185" Click="Button_Click"/>
+    </Grid>
+</Window>
